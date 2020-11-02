@@ -1,0 +1,11 @@
+{
+  "clientes": [
+    {
+      "nombre": "Paul",
+      "email": "paulchavezromero20@gmail.com",
+      "telefono": "123456789",
+      "empresa": "Codigo con Paul",
+      "id": 1
+    }
+  ]
+}
