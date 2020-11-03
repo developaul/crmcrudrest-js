@@ -11,6 +11,10 @@ import {
     showAlert
 } from './functions.js';
 
+import {
+    addClient
+} from './API.js';
+
 (() => {
     
     'use strict';
@@ -18,20 +22,20 @@ import {
     const validateForm = event => {
         event.preventDefault();
 
-        const cliente = {
+        const client = {
             nombre: nombreInput.value,
             email: emailInput.value,
             telefono: telefonoInput.value,
             empresa: empresaInput.value
         }
 
-        if( validate( cliente ) ) {
+        if( validate( client ) ) {
             showAlert( 'Todos los campos son obligatorios' );
             return;
         }
 
         form.reset();
-        console.info( 'Agregando...' );
+        addClient( client );
     }
 
     // Events
