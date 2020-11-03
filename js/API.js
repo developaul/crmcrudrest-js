@@ -44,3 +44,36 @@ export const deleteClient = async idClient => {
     }
 
 }
+
+export const getClient = async id => {
+
+    try {
+        const response  = await fetch( `${ url }/${ id }` );
+        const client    = await response.json();  
+
+        return client;
+    } catch( error ){
+        console.error( error );
+    }
+
+}
+
+export const updateClient = async client => {
+
+    try {
+        const { id } = client;
+
+        await fetch( `${ url }/${ id }`, {
+            method: 'PUT',
+            body: JSON.stringify( client ),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        });
+
+        window.location.href = 'index.html';
+    } catch( error ) {
+        console.error( error );
+    }
+
+}
