@@ -17,3 +17,16 @@ export const addClient = async client => {
     }
 
 }
+
+export const getClients = async () => {
+    
+    try {
+        const response  = await fetch( url );
+        const clients   = await response.json();
+        
+        return clients;
+    } catch( error ) {
+        console.error( error );
+    }
+
+}
