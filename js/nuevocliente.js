@@ -7,7 +7,8 @@ import {
 } from './references.js';
 
 import {
-    validate
+    validate,
+    showAlert
 } from './functions.js';
 
 (() => {
@@ -25,7 +26,7 @@ import {
         }
 
         if( validate( cliente ) ) {
-            console.error( 'Todos los campos son obligatorios' );
+            showAlert( 'Todos los campos son obligatorios' );
             return;
         }
 
