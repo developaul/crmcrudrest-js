@@ -1,5 +1,5 @@
 import { listado } from './references.js';
-import { getClients } from './API.js';
+import { getClients, deleteClient } from './API.js';
 
 (() => {
 
@@ -33,7 +33,23 @@ import { getClients } from './API.js';
         });
     }
 
-    // Events
-    document.addEventListener( 'DOMContentLoaded', showClients );
+    const confirmDelete = event => {
 
+        if( event.target.classList.contains( 'eliminar' ) ) {
+
+            const idClient      = parseInt( event.target.dataset.cliente );
+            const confirmation  = confirm( 'Desea eliminar este registro?' );
+
+            if( confirmation ) {
+                deleteClient( idClient );
+            }
+
+        }
+
+    }
+
+
+    // Events
+    document.addEventListener( 'DOMContentLoaded', showClients );    
+    listado.addEventListener( 'click', confirmDelete );
 })();

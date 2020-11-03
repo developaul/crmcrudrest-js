@@ -30,3 +30,17 @@ export const getClients = async () => {
     }
 
 }
+
+export const deleteClient = async idClient => {
+    
+    try {
+
+        await fetch( `${ url }/${ idClient }`, {
+            method: 'DELETE'
+        });
+
+    } catch( error ) {
+        console.error( error );
+    }
+
+}
